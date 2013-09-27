@@ -1,0 +1,24 @@
+!!! 5
+%html(lang="pt-br")
+    %head
+        %meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
+        %meta(charset="utf-8")
+        %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
+        %title= (title = data.page.title) ? "#{title} / Template" : 'Template'
+        %meta(name="description" content="Template - A Sass-based CSS architecture for creating predictable and maintainable application style.")
+
+        = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300'
+        = stylesheet_link_tag 'application'
+
+    %body{ class: page_classes }
+
+        = partial 'shared/header'
+        = partial 'shared/nav'
+
+        %main.l-cell
+            = find_and_preserve do
+                = yield
+
+
+        = partial 'shared/footer'
